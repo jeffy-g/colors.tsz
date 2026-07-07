@@ -1,3 +1,11 @@
+![NPM Version](https://img.shields.io/npm/v/colors.tsz?style=plastic)
+![node-current](https://img.shields.io/node/v/colors.tsz?style=plastic)
+![LICENSE](https://img.shields.io/npm/l/colors.tsz.svg?style=plastic&color=blue)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/jeffy-g/colors.tsz?style=plastic)
+![npm bundle size](https://img.shields.io/bundlephobia/min/colors.tsz?style=plastic)
+![NPM Downloads](https://img.shields.io/npm/dm/colors.tsz?style=plastic)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/jeffy-g/colors.tsz?style=plastic)
+
 # colors.tsz
 
 `colors.tsz` is a refactored TypeScript build of the original [`colors.ts`](https://github.com/xerysherry/colors.ts).
