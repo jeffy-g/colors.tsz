@@ -52,4 +52,4 @@ export declare const show_cursor: (show?: boolean) => void;
 export declare const more_detail_on_color256: (value?: boolean) => boolean;
 /** @type {(paint: Painter[], value: string) => string} */
 export declare const paint: (paint: Painter[], value: string) => string;
-export declare const version = "1.6.1";
+export declare const version = "1.6.2";

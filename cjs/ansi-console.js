@@ -21,7 +21,7 @@ exports.getRgbFrom256Index = getRgbFrom256Index;
 exports.toConsoleArgsFromAnsiNext = toConsoleArgsFromAnsiNext;
 exports.isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined";
 /**
- * @import { T256Rgb, EAnsiColorList } from "./ansi-console.d.ts";
+ * @import { T256Rgb, EAnsiColorList } from "./ansi-console.ts";
  */
 /** @type {T256Rgb[]} */
 let web_safe_list = Array(216);

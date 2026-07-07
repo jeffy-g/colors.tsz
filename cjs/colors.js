@@ -1,5 +1,5 @@
 /// <reference types="node" preserve="true"/>
-/// <reference path="./colors.d.ts" preserve="true"/>
+/// <reference path="../colors.d.ts" preserve="true"/>
 "use strict";
 /*! Copyright xerysherry 2018
  *
@@ -57,10 +57,10 @@ Object.defineProperty(exports, "toConsoleArgsFromAnsiNext", {
   },
 });
 /**
- * @import { Painter } from "./core/theme.d.ts";
- * @import { TCodesAdvanceKey, TCodesBaseKey } from "./core/ansi-codes.d.ts";
- * @import { TColorsBasicMap, TWebColorSafeList, TColorsMap } from "./core/ansi-color-map.d.ts";
- * @import { Support } from "./core/support-detect.d.ts";
+ * @import { Painter } from "./core/theme.ts";
+ * @import { TCodesAdvanceKey, TCodesBaseKey } from "./core/ansi-codes.ts";
+ * @import { TColorsBasicMap, TWebColorSafeList, TColorsMap } from "./core/ansi-color-map.ts";
+ * @import { Support } from "./core/support-detect.ts";
  */
 /**
  * @param {number} level range is __`0 - 25`__, `0` is __black__, and `25` is __white__
@@ -87,7 +87,7 @@ const _get_256bits_color_code = (idx, flag) => {
   return `\u001B[${flag};5;` + idx + "m" /* EC256bits.colorBitsEndl */;
 };
 /**
- * @import {TSafeMapAndGrayListArg} from "./colors.d.ts";
+ * @import {TSafeMapAndGrayListArg} from "./colors.ts";
  */
 /** @type {(bg: boolean) => TSafeMapAndGrayListArg} */
 const _get_safemap_and_graylist_args = (bg) => {
@@ -440,4 +440,4 @@ const paint = (paint, value) => {
   return (0, theme_1.applyPaint)(paint, value, exports.colors);
 };
 exports.paint = paint;
-exports.version = "1.6.1";
+exports.version = "1.6.2";

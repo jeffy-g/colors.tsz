@@ -6,7 +6,7 @@
 ![NPM Downloads](https://img.shields.io/npm/dm/colors.tsz?style=plastic)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/jeffy-g/colors.tsz?style=plastic)
 
-# colors.tsz
+# 🎨 colors.tsz
 
 `colors.tsz` is a refactored TypeScript build of the original [`colors.ts`](https://github.com/xerysherry/colors.ts).
 
@@ -14,7 +14,7 @@ The goal is to keep the familiar string-color API while making the package easie
 
 The original README is kept as [`origin.README.md`](./origin.README.md).
 
-## Highlights
+## ✨ Highlights
 
 - Refactored from `colors.ts` with smaller generated bundles in mind.
 - Keeps the classic `String.prototype` color helpers such as `"text".red.bold`.
@@ -22,13 +22,13 @@ The original README is kept as [`origin.README.md`](./origin.README.md).
 - Works in Node.js and browser devtools. Use the exported `log` helper when you want ANSI strings to render correctly in the browser console.
 - Provides CJS, ESM, UMD, webpack, and webpack-ESM entry points.
 
-## Install
+## 📦 Install
 
 ```sh
 npm install colors.tsz
 ```
 
-## Basic Usage
+## 🚀 Basic Usage
 
 Importing the module installs the string helpers.
 
@@ -51,7 +51,7 @@ console.log("warning".yellow.bold);
 Colors.log("ok".green);
 ```
 
-## Disable Output
+## 🔇 Disable Output
 
 Use `enable(false)` to stop emitting ANSI codes from the color helpers and control helpers.
 
@@ -66,7 +66,7 @@ console.log("plain".rgb(255, 0, 0)); // "plain"
 
 This project fixes cases where the original implementation could still emit ANSI marks while disabled.
 
-## Browser Logging
+## 🧭 Browser Logging
 
 Browser devtools do not render raw ANSI escape sequences by default. Use `Colors.log` to convert ANSI SGR codes into `console.log` `%c` styles in browser environments.
 
@@ -80,7 +80,7 @@ Colors.log("value: %d %s", 123, "ok".cyan);
 
 In Node.js, `Colors.log` behaves like `console.log` and lets ANSI escape sequences pass through.
 
-### Browser ANSI support
+### 🧪 Browser ANSI support
 
 Some modern browser consoles, including recent Chrome DevTools, can render a subset of ANSI SGR escape sequences directly. That native support is useful for simple styles, but it is not a complete terminal emulator and support differs by browser and SGR form.
 
@@ -95,7 +95,7 @@ However, Chrome DevTools still does not cover everything that a terminal handles
 
 Use `Colors.log` when you want browser output to go through this package's ANSI-to-`%c` conversion path instead of relying only on each browser console's native ANSI support.
 
-## Colors
+## 🌈 Colors
 
 Basic colors and modifiers are available as string properties.
 
@@ -124,7 +124,7 @@ console.log("hex background".hex_bg("#222222"));
 console.log("rgb color".rgb(255, 128, 0));
 ```
 
-## Themes
+## 🧩 Themes
 
 Theme names map to color names or arrays of color names.
 
@@ -144,7 +144,7 @@ console.log("failed".error);
 
 Built-in theme slots include `verbose`, `info`, `debug`, `warning`, `error`, and `custom0` through `custom9`.
 
-## Paint
+## 🖌️ Paint
 
 `paint` applies colors to matched text ranges.
 
@@ -159,7 +159,7 @@ console.log(Colors.paint([
 ], source));
 ```
 
-## Entry Points
+## 🔌 Entry Points
 
 ```ts
 import * as Colors from "colors.tsz";
@@ -173,13 +173,28 @@ const WebpackColors = require("colors.tsz/webpack");
 
 The root entry is the default choice for application code. The subpath entries are mainly for bundle or smoke-test scenarios.
 
-## Notes
+## 🟢 Node.js Compatibility
+
+The package declares Node.js `>=14.14.0`.
+
+When you need to support Node.js 14.x runtimes, use the CommonJS-oriented entries:
+
+```js
+const Colors = require("colors.tsz");
+const UmdColors = require("colors.tsz/umd");
+const WebpackColors = require("colors.tsz/webpack");
+```
+
+The ESM entries are intended for modern Node.js and browser/bundler environments. For Node.js runtime execution, use Node.js `v20.19.0` or newer when depending on ESM entry behavior.
+
+## 📝 Notes
 
 - `colors.tsz` intentionally mutates `String.prototype`, matching the original `colors.ts` API style.
+- At runtime, `String.prototype.bold` is overwritten and can be used as a color property, for example `"text".red.bold`. TypeScript's standard library still declares the legacy HTML helper `String#bold(): string`, so strict type consumers may prefer `Colors.colors(["red", "bold"], "text")` when they need a plain `string` type.
 - `skipLibCheck: true` is recommended for consumers that use strict TypeScript declaration checking across dependencies.
 - The package focuses on practical Node.js and browser-console behavior rather than fully emulating every terminal feature in devtools.
 
-## License
+## 📄 License
 
 Apache-2.0.
 

@@ -22,7 +22,7 @@ export declare const enum Support {
   ANSI24bits = 3,
 }
 /**
- * @import { Support } from "./support-detect";
+ * @import { Support } from "./support-detect.ts";
  * @type {Support}
  */
 export declare const _Support: {

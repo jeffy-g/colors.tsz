@@ -16,8 +16,8 @@
  * @file lib/core/theme.ts
  */
 /**
- * @import { TColorsMap } from "./ansi-color-map";
- * @import { ColorizeFn, Painter } from "./theme";
+ * @import { TColorsMap } from "./ansi-color-map.mts";
+ * @import { ColorizeFn, Painter } from "./theme.mts";
  */
 /**
  * @type {TColorsMap}

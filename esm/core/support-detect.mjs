@@ -16,7 +16,7 @@
  * @file lib/core/support-detect.ts
  */
 /**
- * @import { Support } from "./support-detect";
+ * @import { Support } from "./support-detect.mts";
  * @type {Support}
  */
 export const _Support = /** @type {any} */ ({

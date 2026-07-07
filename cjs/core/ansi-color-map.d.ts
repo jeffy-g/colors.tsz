@@ -24,7 +24,7 @@ export type TWebColorSafeList = {
 };
 export type TColorsMap = Record<string, string | string[]>;
 /**
- * @import { TColorsBasicMap, TWebColorSafeList } from "./ansi-color-map.d.ts";
+ * @import { TColorsBasicMap, TWebColorSafeList } from "./ansi-color-map.ts";
  */
 /**
  * Converts a non-negative integer to hexadecimal string (lowercase).

@@ -16,7 +16,7 @@
  */
 /// <reference types="node" preserve="true"/>
 // @ts-ignore this tag for after build source
-/// <reference path="./colors.d.mts" preserve="true"/>
+/// <reference path="../colors.d.ts" preserve="true"/>
 import { detectSupport, isDefined, setDefined } from "./core/support-detect.mjs";
 export { _Support as Support } from "./core/support-detect.mjs";
 import { _codes_base, _codes_advanced, _reset_ctrl } from "./core/ansi-codes.mjs";
@@ -25,10 +25,10 @@ import { _theme, setTheme, applyPaint } from "./core/theme.mjs";
 import { isBrowser } from "./ansi-console.mjs";
 export { logAnsi as log, isBrowser, getRgbFrom256Index, toConsoleArgsFromAnsiNext } from "./ansi-console.mjs";
 /**
- * @import { Painter } from "./core/theme.d.mts";
- * @import { TCodesAdvanceKey, TCodesBaseKey } from "./core/ansi-codes.d.mts";
- * @import { TColorsBasicMap, TWebColorSafeList, TColorsMap } from "./core/ansi-color-map.d.mts";
- * @import { Support } from "./core/support-detect.d.mts";
+ * @import { Painter } from "./core/theme.mts";
+ * @import { TCodesAdvanceKey, TCodesBaseKey } from "./core/ansi-codes.mts";
+ * @import { TColorsBasicMap, TWebColorSafeList, TColorsMap } from "./core/ansi-color-map.mts";
+ * @import { Support } from "./core/support-detect.mts";
  */
 /**
  * @param {number} level range is __`0 - 25`__, `0` is __black__, and `25` is __white__
@@ -55,7 +55,7 @@ const _get_256bits_color_code = (idx, flag) => {
   return `\u001B[${flag};5;` + idx + "m" /* EC256bits.colorBitsEndl */;
 };
 /**
- * @import {TSafeMapAndGrayListArg} from "./colors.d.mts";
+ * @import {TSafeMapAndGrayListArg} from "./colors.mts";
  */
 /** @type {(bg: boolean) => TSafeMapAndGrayListArg} */
 const _get_safemap_and_graylist_args = (bg) => {
@@ -397,4 +397,4 @@ export const paint = (paint, value) => {
   if (!_enable || paint == null || value == null || value.length === 0 || paint.length === 0) return value;
   return applyPaint(paint, value, colors);
 };
-export const version = "1.6.1";
+export const version = "1.6.2";

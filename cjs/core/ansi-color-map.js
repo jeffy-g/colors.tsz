@@ -18,7 +18,7 @@
  */
 exports.__esModule = true;
 /**
- * @import { TColorsBasicMap, TWebColorSafeList } from "./ansi-color-map.d.ts";
+ * @import { TColorsBasicMap, TWebColorSafeList } from "./ansi-color-map.ts";
  */
 /**
  * Converts a non-negative integer to hexadecimal string (lowercase).
@@ -45,14 +45,14 @@ exports.n2h = n2h;
 const _color_web_safe_map_init = () => {
   const hexStrA = ["00", "33", "66", "99", "cc", "ff"];
   const hexNumA = [0, 0x33, 0x66, 0x99, 0xcc, 0xff];
-  exports._color_web_safe_map = {};
-  exports._color_web_safe_list = [];
-  exports._color_bg_web_safe_map = {};
-  exports._color_bg_web_safe_list = [];
-  exports._color_gray_map = {};
-  exports._color_gray_list = [];
-  exports._color_bg_gray_map = {};
-  exports._color_bg_gray_list = [];
+  exports._color_web_safe_map = /** @type {TColorsBasicMap} */ ({});
+  exports._color_web_safe_list = /** @type {TWebColorSafeList[]} */ ([]);
+  exports._color_bg_web_safe_map = /** @type {TColorsBasicMap} */ ({});
+  exports._color_bg_web_safe_list = /** @type {TWebColorSafeList[]} */ ([]);
+  exports._color_gray_map = /** @type {TColorsBasicMap} */ ({});
+  exports._color_gray_list = /** @type {TWebColorSafeList[]} */ ([]);
+  exports._color_bg_gray_map = /** @type {TColorsBasicMap} */ ({});
+  exports._color_bg_gray_list = /** @type {TWebColorSafeList[]} */ ([]);
   let key = [0, 0, 0];
   for (let i = 0; i < 216; ++i, ++key[0]) {
     if (key[0] > 5) {

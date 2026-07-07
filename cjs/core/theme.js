@@ -18,8 +18,8 @@
  */
 exports.__esModule = true;
 /**
- * @import { TColorsMap } from "./ansi-color-map";
- * @import { ColorizeFn, Painter } from "./theme";
+ * @import { TColorsMap } from "./ansi-color-map.ts";
+ * @import { ColorizeFn, Painter } from "./theme.ts";
  */
 /**
  * @type {TColorsMap}

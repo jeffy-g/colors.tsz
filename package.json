@@ -1,6 +1,9 @@
 {
   "name": "colors.tsz",
-  "version": "1.6.1",
+  "version": "1.6.2",
+  "author": "jeffy-g",
+  "license": "Apache-2.0",
+  "description": "Console colors dev by Typescript (Fork of colors.ts with additional refinements)",
   "main": "./cjs/colors.js",
   "types": "index.d.ts",
   "type": "commonjs",
@@ -26,6 +29,9 @@
       "require": "./umd/index.js"
     }
   },
+  "engines": {
+    "node": ">=14.14.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jeffy-g/colors.tsz.git"
@@ -48,9 +54,6 @@
     "origin.README.md",
     "LICENSE"
   ],
-  "author": "jeffy-g",
-  "license": "Apache-2.0",
-  "description": "Console colors dev by Typescript (Fork of colors.ts with additional refinements)",
   "bugs": {
     "url": "https://github.com/jeffy-g/colors.tsz/issues"
   },

@@ -17,7 +17,7 @@
  */
 export const isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined";
 /**
- * @import { T256Rgb, EAnsiColorList } from "./ansi-console.d.mts";
+ * @import { T256Rgb, EAnsiColorList } from "./ansi-console.mts";
  */
 /** @type {T256Rgb[]} */
 let web_safe_list = Array(216);

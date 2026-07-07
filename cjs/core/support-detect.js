@@ -18,7 +18,7 @@
  */
 exports.__esModule = true;
 /**
- * @import { Support } from "./support-detect";
+ * @import { Support } from "./support-detect.ts";
  * @type {Support}
  */
 exports._Support = {
