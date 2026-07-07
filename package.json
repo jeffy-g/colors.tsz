@@ -1,0 +1,58 @@
+{
+  "name": "colors.tsz",
+  "version": "1.6.1",
+  "main": "./cjs/colors.js",
+  "types": "index.d.ts",
+  "type": "commonjs",
+  "module": "./esm/colors.mjs",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./esm/colors.mjs",
+      "require": "./cjs/colors.js"
+    },
+    "./webpack": {
+      "types": "./webpack/index.d.cts",
+      "import": "./webpack/index.cjs",
+      "require": "./webpack/index.cjs"
+    },
+    "./webpack-esm": {
+      "types": "./webpack-esm/index.d.mts",
+      "import": "./webpack-esm/index.mjs"
+    },
+    "./umd": {
+      "types": "./umd/index.d.ts",
+      "import": "./umd/index.js",
+      "require": "./umd/index.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffy-g/colors.tsz.git"
+  },
+  "keywords": [
+    "console",
+    "colors",
+    "typescript",
+    "ts"
+  ],
+  "files": [
+    "cjs",
+    "esm",
+    "umd",
+    "sample",
+    "webpack",
+    "webpack-esm",
+    "*.d.ts",
+    "*.d.mts",
+    "origin.README.md",
+    "LICENSE"
+  ],
+  "author": "jeffy-g",
+  "license": "Apache-2.0",
+  "description": "Console colors dev by Typescript (Fork of colors.ts with additional refinements)",
+  "bugs": {
+    "url": "https://github.com/jeffy-g/colors.tsz/issues"
+  },
+  "homepage": "https://github.com/jeffy-g/colors.tsz#readme"
+}
