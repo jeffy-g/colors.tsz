@@ -213,6 +213,28 @@ const _codes_init = () => {
     if (_check_reset_end(dis)) return code + dis;
     else return code + dis + _reset_ctrl;
   };
+  /** @type {(fn_name: "color_at_256" | "color_bg_at_256", dis: string, split?: true) => string} */
+  const _colors256_rnd_impl = (fn_name, dis, split) => {
+    if (split) {
+      const chars = dis.split("");
+      let joined = "";
+      for (let idx = 0, charsLen = chars.length; idx < charsLen; ) {
+        joined += chars[idx++][fn_name]((Math.random() * 256) | 0);
+      }
+      return joined;
+    }
+    return dis[fn_name]((Math.random() * 256) | 0);
+  };
+  _strProto.colors256_rnd =
+    /** @type {(this: string, split?: true) => string} */
+    function (split) {
+      return _colors256_rnd_impl("color_at_256", this, split);
+    };
+  _strProto.colors256_rnd_bg =
+    /** @type {(this: string, split?: true) => string} */
+    function (split) {
+      return _colors256_rnd_impl("color_bg_at_256", this, split);
+    };
   _strProto.color_at_256 =
     /** @type {(this: string, idx: number) => string} */
     function (idx) {
@@ -397,4 +419,4 @@ export const paint = (paint, value) => {
   if (!_enable || paint == null || value == null || value.length === 0 || paint.length === 0) return value;
   return applyPaint(paint, value, colors);
 };
-export const version = "1.6.2";
+export const version = "1.6.3";

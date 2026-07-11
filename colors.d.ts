@@ -101,6 +101,14 @@ declare global {
     custom8: string;
     custom9: string;
     /**
+     * @param split split each characters
+     */
+    colors256_rnd(split?: true): string;
+    /**
+     * @param split split each characters
+     */
+    colors256_rnd_bg(split?: true): string;
+    /**
      * @param idx __`0`__ to __`255`__
      */
     color_at_256(idx: number): string;

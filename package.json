@@ -1,6 +1,6 @@
 {
   "name": "colors.tsz",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "author": "jeffy-g",
   "license": "Apache-2.0",
   "description": "Console colors dev by Typescript (Fork of colors.ts with additional refinements)",
