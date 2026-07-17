@@ -42,26 +42,41 @@ exports.setDefined = setDefined;
  * @returns {Support} Detected color support level.
  */
 const detectSupport = () => {
-  if (typeof process !== "object") {
+  /* First, let's check is browser */ {
+    const g = globalThis;
+    if (typeof g.window === "object" && typeof g.window.document === "object") {
+      return 3 /* Support.ANSI24bits */;
+    }
+  }
+  const proc = (typeof process === "object" && process) || undefined;
+  if (
+    !proc ||
+    !proc.versions ||
+    typeof proc.versions.node !== "string"
+  ) {
     return 3 /* Support.ANSI24bits */;
   }
-  const env = process.env || {};
-  const argv = Array.isArray(process.argv) ? process.argv : [];
-  if (argv.indexOf("nocolor") >= 0 || argv.indexOf("nocolors") >= 0) {
-    return 0 /* Support.DISABLE */;
+  const env = proc.env || {};
+  {
+    const argv = Array.isArray(proc.argv) ? proc.argv : [];
+    if (argv.length) {
+      if (argv.includes("nocolor") || argv.includes("nocolors")) {
+        return 0 /* Support.DISABLE */;
+      }
+      if (argv.find((arg) => /^fullcolors?$/.test(arg)) || argv.find((arg) => /^truecolors?$/.test(arg)) || argv.includes("color24bits")) {
+        return 3 /* Support.ANSI24bits */;
+      }
+      if (argv.find((arg) => /^(?:websafe|color256)$/.test(arg))) {
+        return 2 /* Support.ANSI256 */;
+      }
+      if (argv.find((arg) => /^(?:colorbase|basecolors)$/.test(arg))) {
+        return 1 /* Support.BASE */;
+      }
+    }
   }
-  if (argv.indexOf("fullcolor") >= 0 || argv.indexOf("fullcolors") >= 0 || argv.indexOf("truecolor") >= 0 || argv.indexOf("truecolors") >= 0 || argv.indexOf("color24bits") >= 0) {
-    return 3 /* Support.ANSI24bits */;
-  }
-  if (argv.indexOf("websafe") >= 0 || argv.indexOf("color256") >= 0) {
-    return 2 /* Support.ANSI256 */;
-  }
-  if (argv.indexOf("colorbase") >= 0 || argv.indexOf("basecolors") >= 0) {
-    return 1 /* Support.BASE */;
-  }
-  if (process.platform === "win32") {
+  if (proc.platform === "win32") {
     if (env.COLORTERM === "truecolor") return 3 /* Support.ANSI24bits */;
-    const nodeVersion = (process.versions && process.versions.node) || "0.0.0";
+    const nodeVersion = proc.versions.node || "0.0.0";
     const nodeMajor = +nodeVersion.split(".")[0] || 0;
     if (nodeMajor >= 8) return 2 /* Support.ANSI256 */;
     return 1 /* Support.BASE */;
@@ -87,20 +102,16 @@ const detectSupport = () => {
         return 2 /* Support.ANSI256 */;
     }
   }
+  const eTerm = env.TERM;
   // @ts-expect-error regex.test allows undefined value
-  if (/-256(?:color)?$/i.test(env.TERM)) {
+  if (/-256(?:color)?$/i.test(eTerm)) {
     return 2 /* Support.ANSI256 */;
   }
   // @ts-expect-error regex.test allows undefined value
-  if (/^screen|^xterm|^vt100|^rxvt|color|ansi|cygwin|linux/i.test(env.TERM)) {
+  if (/^(?:screen|xterm|vt100|rxvt)|color|ansi|cygwin|linux/i.test(eTerm)) {
     return 2 /* Support.ANSI256 */;
   }
-  if ("COLORTERM" in env) {
-    return 1 /* Support.BASE */;
-  }
-  if (env.TERM === "dumb") {
-    return 1 /* Support.BASE */;
-  }
+  if ("COLORTERM" in env || eTerm === "dumb") return 1 /* Support.BASE */;
   return 0 /* Support.DISABLE */;
 };
 exports.detectSupport = detectSupport;

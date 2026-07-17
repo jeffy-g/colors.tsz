@@ -421,4 +421,4 @@ export const paint = (paint, value) => {
   if (!_enable || paint == null || value == null || value.length === 0 || paint.length === 0) return value;
   return applyPaint(paint, value, colors);
 };
-export const version = "1.6.4";
+export const version = "1.6.5";

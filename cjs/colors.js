@@ -464,4 +464,4 @@ const paint = (paint, value) => {
   return (0, theme_1.applyPaint)(paint, value, exports.colors);
 };
 exports.paint = paint;
-exports.version = "1.6.4";
+exports.version = "1.6.5";
